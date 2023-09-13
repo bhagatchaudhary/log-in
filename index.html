@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-In form</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&family=Noto+Serif:wght@200&family=Poppins:wght@200;300;400;600;900&family=Roboto&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Fira Sans', sans-serif;
+        font-family: 'Noto Serif', serif;
+        font-family: 'Poppins', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        color: #fff;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: url("tree.jpg") center / cover no-repeat;
+    }
+
+    form {
+        border: 2px solid #eb15ff;
+        border-radius: 5px;
+        padding: 1rem 2rem;
+    }
+
+    form h2 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    .inputbox {
+        position: relative;
+        width: 300px;
+        margin-bottom: 40px;
+    }
+
+    .inputbox input {
+        position: relative;
+        width: 100%;
+        padding: 10px 0;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid #fff;
+        outline: none;
+        font-size: 1em;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+    }
+
+    .inputbox label {
+        position: absolute;
+        padding: 10px 0;
+        left: 0;
+        pointer-events: none;
+        text-transform: uppercase;
+    }
+
+    .inputbox label span {
+        position: relative;
+        display: inline-flex;
+        letter-spacing: 0, 05em;
+        transition: 0.2s ease-in-out;
+    }
+
+    .inputbox input:focus~label span,
+    .inputbox input:valid~label span {
+        color: rgb(255, 255, 255);
+        letter-spacing: 0.15em;
+        transform: translateY(-25px);
+    }
+
+    .inputbox input:focus,
+    .inputbox input:valid {
+        border-bottom: 2px solid #eb15ff;
+    }
+
+    .inputbox input[type="submit"] {
+        background: #eb15ff;
+        border: none;
+        padding: 11px;
+        border-radius: 50px;
+        font-size: 1.15rem;
+        font-weight: 700;
+        cursor: pointer;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition: 0.5s;
+    }
+
+    .inputbox input[type="submit"]:hover {
+        letter-spacing: 0.40em;
+        background: royalblue;
+    }
+
+    form p {
+        text-transform: uppercase;
+        font-size: 14px;
+        text-align: center;
+        padding-top: 30px;
+    }
+
+    form p a {
+        color: #eb15ff;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .remember {
+        display: flex;
+        text-align: center;
+        font-size: small;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .remember .checkbox {
+        display: flex;
+        text-align: center;
+        gap: 5px;
+    }
+</style>
+
+<body>
+    <form action="#">
+        <h2>Login</h2>
+
+        <div class="inputbox">
+            <input type="text" required>
+            <label for="text">Email</label>
+        </div>
+        <div class="inputbox">
+            <input type="password" required>
+            <label for="password">Password</label>
+        </div>
+        <div class="inputbox">
+            <input type="submit" value="Login">
+        </div>
+
+        <p>Create a new account <a href="">SignUp</a></p>
+
+        <div class="remember">
+            <div class="checkbox">
+                <input type="checkbox" name="" id="login-check">
+                <label for="">Remember me</label>
+            </div>
+        </div>
+    </form>
+    <script>
+        let label = document.querySelectorAll("label");
+        label.forEach((LabeL) => {
+            LabeL.innerHTML = LabeL.innerText
+                .split("")
+                .map(
+                    (letters, i) =>
+                        `<span style="transition-delay:${i * 60}ms">${letters}</span>`
+                )
+                .join("");
+        })
+    </script>
+</body>
+
+</html>
